@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.nav {
+  height: 55px;
+  width: 100%;
+  background: #2e6bc7;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  position: fixed;
+  z-index: 9;
+  color: #fff;
+}
+
+.title {
+  font-weight: 600;
+}
+
+.balance {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  width: 340px;
+  font-weight: 600;
+}
+
+.balance-info {
+  display: flex;
+  gap: 12px;
+}
+
+.topup-balance {
+  text-decoration: none;
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.balance > span:last-child {
+  text-decoration: underline;
+}
+
+.wrapper {
+  width: 100%;
+  padding: 12px 12px;
+  position: relative;
+  top: 55px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.movie-wrapper {
+  width: 200px;
+  padding: 10px;
+  margin-right: auto;
+}
+
+.movie-poster {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.movie-poster img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.movie-info {
+  margin-top: 5px;
+}
+
+.movie-info .link {
+  text-decoration: none;
+  color: black;
+}
+
+.movie-info .link:hover {
+  color: red;
+}
+
+.movie-title {
+  font-weight: 600;
+  position: relative;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  line-height: 20px;
+  margin-bottom: 2px;
+}
+
+.movie-description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  text-align: justify;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.movie-info-gen {
+  display: flex;
+  margin-top: 50px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.movie-info-gen .movie-price {
+  font-weight: 600;
+  color: green;
+}
+
+.movie-info-gen .movie-age_rating {
+  background-color: red;
+  padding: 4px;
+  border-radius: 50%;
+  display: flex;
+  font-weight: 600;
+  color: white;
+  align-items: center;
+}
