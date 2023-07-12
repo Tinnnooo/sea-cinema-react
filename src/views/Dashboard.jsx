@@ -3,9 +3,10 @@ import React, { useEffect } from "react";
 import { useStateContext } from "../contexts/ContextProvider";
 import MovieItem from "../components/MovieItem";
 import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 export default function Dashboard() {
-  const { movies, setMovies, balance, setBalance } = useStateContext();
+  const { movies, setMovies, balance } = useStateContext();
 
   useEffect(() => {
     axios
@@ -18,27 +19,26 @@ export default function Dashboard() {
       });
   }, []);
 
+  const formatBalance = (balance) => {
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    }).format(balance);
+  };
+
   return (
     <>
-      <nav className="nav">
-        <div className="title">SEA CINEMA</div>
-        <div className="balance">
-          <div className="balance-info">
-            <span>Balance:</span>
-            <span>Rp. {balance ? balance : "-"}</span>
-          </div>
-          <div className="balance-action">
-            <Link to="/balance/topup" className="topup-balance">
-              Top up
-            </Link>
-          </div>
-        </div>
-      </nav>
-
+      <Navbar />
       <main>
         <div className="wrapper">
           {movies &&
-            movies.map((movie, ind) => <MovieItem key={ind} movie={movie} />)}
+            movies.map((movie, ind) => (
+              <MovieItem
+                key={ind}
+                movie={movie}
+                formatBalance={formatBalance}
+              />
+            ))}
         </div>
       </main>
     </>

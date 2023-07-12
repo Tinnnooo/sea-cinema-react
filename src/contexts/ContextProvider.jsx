@@ -2,14 +2,14 @@ import { createContext, useContext, useState } from "react";
 
 const StateContext = createContext({
   movies: [],
-  balance: "",
+  balance: 0,
   setMovies: () => {},
   setBalance: () => {},
 });
 
 export const ContextProvider = ({ children }) => {
   const [movies, setMovies] = useState([]);
-  const [balance, setBalance] = useState("2000000");
+  const [balance, setBalance] = useState(2000000);
 
   return (
     <StateContext.Provider value={{ movies, setMovies, balance, setBalance }}>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function MovieItem({ movie }) {
+export default function MovieItem({ movie, formatBalance }) {
   return (
     <div className="movie-wrapper">
       <div className="movie-poster">
@@ -16,7 +16,7 @@ export default function MovieItem({ movie }) {
         <div className="movie-description">{movie.description}</div>
       </div>
       <div className="movie-info movie-info-gen">
-        <div className="movie-price">Rp. {movie.ticket_price},-</div>
+        <div className="movie-price">{formatBalance(movie.ticket_price)}</div>
         <div className="movie-age_rating">{movie.age_rating}</div>
       </div>
     </div>
