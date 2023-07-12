@@ -1,12 +1,12 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 import { useStateContext } from "../contexts/ContextProvider";
-import MovieItem from "../components/MovieItem";
-import { Link } from "react-router-dom";
+import MovieListItem from "../components/MovieListItem";
 import Navbar from "../components/Navbar";
+import { formatBalance } from "../utils/formatBalance";
 
 export default function Dashboard() {
-  const { movies, setMovies, balance } = useStateContext();
+  const { movies, setMovies } = useStateContext();
 
   useEffect(() => {
     axios
@@ -19,21 +19,14 @@ export default function Dashboard() {
       });
   }, []);
 
-  const formatBalance = (balance) => {
-    return new Intl.NumberFormat("id-ID", {
-      style: "currency",
-      currency: "IDR",
-    }).format(balance);
-  };
-
   return (
     <>
       <Navbar />
       <main>
-        <div className="wrapper">
+        <div className="main-wrapper">
           {movies &&
             movies.map((movie, ind) => (
-              <MovieItem
+              <MovieListItem
                 key={ind}
                 movie={movie}
                 formatBalance={formatBalance}

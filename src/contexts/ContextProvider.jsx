@@ -9,10 +9,21 @@ const StateContext = createContext({
 
 export const ContextProvider = ({ children }) => {
   const [movies, setMovies] = useState([]);
-  const [balance, setBalance] = useState(2000000);
+  const [balance, setBalance] = useState(
+    localStorage.getItem("sea-cinema-balance") ?? 0
+  );
+
+  const setCinemaBalance = (balance) => {
+    if (balance) {
+      localStorage.setItem("sea-cinema-balance", balance);
+    }
+    setBalance(balance);
+  };
 
   return (
-    <StateContext.Provider value={{ movies, setMovies, balance, setBalance }}>
+    <StateContext.Provider
+      value={{ movies, setMovies, balance, setCinemaBalance }}
+    >
       {children}
     </StateContext.Provider>
   );

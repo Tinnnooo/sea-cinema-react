@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Dashboard from "./views/Dashboard";
 import Topup from "./views/Topup";
+import Ticket from "./views/Ticket";
 
 const router = createBrowserRouter([
   {
@@ -10,6 +11,10 @@ const router = createBrowserRouter([
   {
     path: "/balance/topup",
     element: <Topup />,
+  },
+  {
+    path: "/movie/:title",
+    element: <Ticket />,
   },
 ]);
 

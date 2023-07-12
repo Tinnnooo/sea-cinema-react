@@ -30,8 +30,14 @@ body {
   display: flex;
   gap: 12px;
   justify-content: space-between;
-  width: 340px;
+  width: 280px;
   font-weight: 600;
+}
+
+@media screen and (max-width: 768px) {
+  .balance {
+    width: 210px;
+  }
 }
 
 .balance-info {
@@ -44,6 +50,7 @@ body {
   background-color: #fff;
   padding: 5px;
   border-radius: 8px;
+  color: #2e6bc7;
   font-weight: 600;
 }
 
@@ -51,21 +58,30 @@ body {
   text-decoration: underline;
 }
 
+.main-wrapper {
+  width: 100%;
+  padding: 12px 12px;
+  position: relative;
+  top: 55px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-rows: auto;
+  grid-gap: 20px;
+}
+
 .wrapper {
   width: 100%;
   padding: 12px 12px;
   position: relative;
   top: 55px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
 }
 
-.movie-wrapper {
-  width: 200px;
-  padding: 10px;
-  margin-right: auto;
+.wrapper .wrapper-title {
+  font-weight: 600;
+  font-size: 28px;
+  color: #2e6bc7;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .movie-poster {
@@ -135,7 +151,144 @@ body {
   padding: 4px;
   border-radius: 50%;
   display: flex;
+  font-size: 12px;
   font-weight: 600;
   color: white;
   align-items: center;
+}
+
+.balance-topup-info {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.current-balance {
+  font-weight: 600;
+}
+
+.current-balance > span:last-child {
+  color: #2e6bc7;
+}
+
+.link {
+  text-decoration: none;
+  color: #fff;
+}
+
+.balance-value {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.topup-title {
+  font-size: 16;
+  font-weight: 500;
+}
+
+input {
+  all: unset;
+  border: 2px solid #dedede;
+  padding: 5px;
+  border-radius: 6px;
+}
+
+.topup-button {
+  padding: 10px;
+  background-color: rgb(20, 111, 196);
+  color: #fff;
+  font-weight: 600;
+  font-size: 18px;
+  border-color: #2e6bc7;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.select-seat,
+.identity > h2 {
+  color: #2e6bc7;
+}
+
+.seats {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  grid-template-rows: auto;
+  grid-gap: 12px;
+}
+
+.seat-button {
+  background-color: #2e6bc7;
+  border: none;
+  padding: 13px;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.seat-button:disabled {
+  background-color: #bebebe;
+}
+
+.selected {
+  background: rgb(10, 170, 37);
+}
+
+.identity-input {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.continue-button {
+  background-color: green;
+  border: none;
+  padding: 10px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+  text-align: center;
+}
+
+.payment-detail {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.payment-detail p {
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.button-payment {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-payment button {
+  border: none;
+  background-color: #2e6bc7;
+  padding: 9px;
+  width: 150px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.button-payment button:last-child {
+  background-color: red;
 }

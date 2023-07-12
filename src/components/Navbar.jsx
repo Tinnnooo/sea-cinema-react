@@ -1,22 +1,18 @@
 import React from "react";
 import { useStateContext } from "../contexts/ContextProvider";
 import { Link } from "react-router-dom";
+import { formatBalance } from "../utils/formatBalance";
 
 export default function Navbar() {
   const { balance } = useStateContext();
-  const formatBalance = (balance) => {
-    return new Intl.NumberFormat("id-ID", {
-      style: "currency",
-      currency: "IDR",
-    }).format(balance);
-  };
   return (
     <nav className="nav">
-      <div className="title">SEA CINEMA</div>
+      <Link to="/" className="link">
+        <div className="title">SEA CINEMA</div>
+      </Link>
       <div className="balance">
         <div className="balance-info">
-          <span>Balance:</span>
-          <span>{balance ? formatBalance(balance) : "-"}</span>
+          <span>{balance ? formatBalance(balance) : "Rp. 0"}</span>
         </div>
         <div className="balance-action">
           <Link to="/balance/topup" className="topup-balance">
